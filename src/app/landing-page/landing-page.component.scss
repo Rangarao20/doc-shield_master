@@ -1,0 +1,112 @@
+
+@font-face {
+    font-family: manifapro;
+    src: url(../../assets/Fonts/ManifaPro2_2.224-Regular.otf) format('opentype');
+}
+
+
+body{
+    font-family: manifapro;
+}
+
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+    min-height: 5vh;
+
+}
+
+::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+
+  #searchbar{
+    padding:0px; width:40vw; height:3vh; border-radius: 25px;
+    margin-left: 80px;
+}
+
+
+#verifybtn{
+    height:2.3rem;
+    width:5rem;
+    background: #00488A;
+    color:white;
+    font-family: inherit;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.header-text{
+    font-size: 1.2vw;
+    font-family: manifapro;
+}
+.header-text:nth-child(2){
+    color:#159AFF;
+}
+.cnt-main{
+    height:auto;
+     width:100%;
+      background-color: rgb(255, 255, 255);
+       display: flex;
+       justify-content: space-evenly;
+        align-items:center;
+         flex-direction: column;
+        //   border:2px solid green;
+          row-gap: 1.5vw;
+}
+.cnt-box{
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+    flex-direction: row;
+    // height:40vh;
+    width:90%;
+    // border:2px solid red;
+    border-radius: 10px;
+    padding:2vw;
+    box-shadow: -1px 1px 9px 0px rgba(8,8,8,0.24);
+}
+
+.fstbox-rght{
+    font-family: manifapro;
+    width:40vw;
+    height:auto;
+    font-size: 2vw;
+    line-height: 1.3;
+}
+
+.manifaprofont{
+    font-family: manifapro;
+}
+span,button{
+    font-family: manifapro;
+}
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+.round-cards{
+    display:flex; justify-content:center; align-items: center; background-color: white; box-shadow: -1px 1px 9px 0px rgba(8,8,8,0.24); height:100px; width:100px; border-radius: 50%;
+}
+.cardline{
+    height:0.28vw; width:10vw; background-color: #F1F1F1; margin: 2vw; border-radius: 15px;
+}
+
+#first-content::after{
+    content: "\a";
+    white-space: pre;
+}
+.example-icon
+{
+  font-family: manifapro;
+}

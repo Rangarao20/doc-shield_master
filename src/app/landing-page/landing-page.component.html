@@ -1,0 +1,187 @@
+<header>
+    <mat-toolbar style="background-color: #00488A; color: white;">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon style="color:#159AFF">verified_user</mat-icon>
+        </button>
+        <span class="header-text" id="first-content">Doc</span><span class="header-text">Shield</span>
+        <!-- <span id="second-content">Powered by Blockchain</span> -->
+        <div style="display: flex; justify-content: right; align-items: center; flex-direction: row; column-gap: 20px;" class="example-spacer">
+            <button mat-button class="example-icon">About us</button>
+            <button mat-raised-button class="example-icon" color="primary" (click)=" openDialog()">Login</button>
+        </div>
+      </mat-toolbar>
+</header>
+<main>
+    <!-- background: radial-gradient(circle, rgba(252,252,252,1) 0%, rgba(217,239,253,1) 100%); -->
+    <img style="position: absolute; top:10px; height:530px; width:510px;" src="../../assets/images/Document_Fraud.png">
+   <div style="height:80vh; width:100%; background: rgb(252,252,252); background-color: white;
+   display: flex; justify-content: center; align-items: center; flex-direction: column; row-gap: 4vw; ">
+    <div style=" display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <span style="font-size: 2vw; color:#656363;">Aramco <span style="font-size: 4vw;"><span style="color: #00488A;">Doc</span><span style="color:#159AFF">Shield</span></span> </span>
+        <span style="font-size: 1.9vw; padding:0.5vw; color: #868686;">powered by blockchain</span>
+    </div>
+    <div>
+    <mat-form-field appearance="outline"  id="searchbar">
+        <div style="display:flex; justify-content: center; align-items: center; flex-direction: row;">
+         <input  matInput placeholder="Enter the url to verify the Digital Document" id = "in">
+
+         <!-- <svg  fill="#00ADE5" xmlns="http://www.w3.org/2000/svg" height="4vh" viewBox="0 96 960 960" width="3vw"><path d="M796 935 533 672q-30 26-69.959 40.5T378 727q-108.162 0-183.081-75Q120 577 120 471t75-181q75-75 181.5-75t181 75Q632 365 632 471.15 632 514 618 554q-14 40-42 75l264 262-44 44ZM377 667q81.25 0 138.125-57.5T572 471q0-81-56.875-138.5T377 275q-82.083 0-139.542 57.5Q180 390 180 471t57.458 138.5Q294.917 667 377 667Z"/></svg> -->
+        </div>
+         <!-- <mat-icon matSuffix id="searchicon">search</mat-icon> -->
+     </mat-form-field>
+     <button mat-button id="verifybtn">Verify</button>
+
+    </div>
+   </div>
+<br>
+   <div class="cnt-main" >
+    <div class="cnt-box">
+        <div>
+            <svg width="172" height="208" viewBox="0 0 322 358" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect y="25" width="294" height="333" rx="10" fill="#00488A"/>
+                <rect x="30" y="2" width="290" height="329" rx="8" fill="url(#paint0_radial_19_240)" stroke="#159AFF" stroke-width="4"/>
+                <path d="M94.5613 222.489C94.2178 222.321 94 221.972 94 221.59V147.449C94 146.709 94.7744 146.226 95.4387 146.55L159.303 177.727C159.646 177.895 159.864 178.244 159.864 178.626V252.768C159.864 253.507 159.09 253.991 158.426 253.667L94.5613 222.489Z" fill="#159AFF"/>
+                <path d="M254.439 222.489C254.782 222.321 255 221.972 255 221.59V147.449C255 146.709 254.226 146.226 253.561 146.55L189.697 177.727C189.354 177.895 189.136 178.244 189.136 178.626V252.768C189.136 253.507 189.91 253.991 190.574 253.667L254.439 222.489Z" fill="#159AFF"/>
+                <path d="M159.583 87.1035L174.501 80L189.418 87.1035M159.583 143.931L174.501 151.035L189.418 143.931M231.328 123.974L249.087 115.517L231.328 107.061M117.673 107.061L99.9141 115.517L117.673 123.974" stroke="#159AFF" stroke-width="6" stroke-linejoin="round"/>
+                <defs>
+                <radialGradient id="paint0_radial_19_240" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(175 166.5) rotate(90) scale(166.5 147)">
+                <stop stop-color="white"/>
+                <stop offset="1" stop-color="white"/>
+                </radialGradient>
+                </defs>
+                </svg>
+        </div>
+        <div  class="fstbox-rght">
+           <span>
+            DocShield employs Blockchain for robust document security, leveraging tamper-proofing and immutability to ensure trustworthiness, reducing fraud risks.
+           </span>
+        </div>
+    </div>
+    <div class="cnt-box" >
+
+        <div  class="fstbox-rght">
+           <span>
+            DocShield employs Blockchain for robust document security, leveraging tamper-proofing and immutability to ensure trustworthiness, reducing fraud risks.
+           </span>
+        </div>
+        <div>
+            <svg width="172" height="208" viewBox="0 0 329 369" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g filter="url(#filter0_d_27_189)">
+                <rect x="31" y="28" width="294" height="333" rx="10" fill="#00488A"/>
+                <rect x="6" y="2" width="290" height="329" rx="8" fill="white" stroke="#159AFF" stroke-width="4"/>
+                <path d="M163.672 226.911C163.672 235.246 156.917 242 148.583 242C140.248 242 133.493 235.245 133.493 226.911C133.493 218.577 140.248 211.822 148.583 211.822C156.917 211.822 163.672 218.577 163.672 226.911Z" stroke="#159AFF" stroke-width="4"/>
+                <path d="M227.262 114.752C227.262 123.086 220.508 129.841 212.174 129.841C203.839 129.841 197.084 123.086 197.084 114.752C197.084 106.417 203.839 99.6626 212.174 99.6626C220.508 99.6626 227.262 106.417 227.262 114.752Z" stroke="#159AFF" stroke-width="4"/>
+                <path d="M104.178 114.752C104.178 123.086 97.4235 129.841 89.0891 129.841C80.7547 129.841 74 123.086 74 114.752C74 106.417 80.7548 99.6626 89.0891 99.6626C97.4235 99.6626 104.178 106.417 104.178 114.752Z" stroke="#159AFF" stroke-width="4"/>
+                <path d="M185.557 211.786L185.557 211.786L167.369 223.511C165.766 214.59 157.965 207.822 148.582 207.822C139.522 207.822 132.007 214.142 130.057 222.591L114.156 212.35C98.8083 202.462 89.5353 185.461 89.5353 167.201V133.836C99.8725 133.599 108.178 125.146 108.178 114.752C108.178 112.298 107.674 109.991 106.829 107.879L149.827 92.1298L194.234 108.378C193.51 110.353 193.083 112.489 193.083 114.752C193.083 124.62 200.57 132.738 210.173 133.737V166.644C210.173 184.898 200.9 201.899 185.557 211.786Z" stroke="#159AFF" stroke-width="4"/>
+                <mask id="path-7-inside-1_27_189" fill="white">
+                <path d="M133.969 153.881V142.87C133.969 138.662 135.64 134.62 138.623 131.643C141.6 128.666 145.642 126.988 149.851 126.988C154.054 127.007 158.077 128.684 161.042 131.661C164.006 134.639 165.671 138.668 165.671 142.87V153.881"/>
+                </mask>
+                <path d="M138.623 131.643L141.449 134.474L141.451 134.471L138.623 131.643ZM149.851 126.988L149.869 122.988L149.86 122.988H149.851V126.988ZM161.042 131.661L163.876 128.839L163.876 128.839L161.042 131.661ZM137.969 153.881V142.87H129.969V153.881H137.969ZM137.969 142.87C137.969 139.721 139.219 136.699 141.449 134.474L135.798 128.812C132.061 132.541 129.969 137.602 129.969 142.87H137.969ZM141.451 134.471C143.68 132.243 146.706 130.988 149.851 130.988V122.988C144.579 122.988 139.521 125.089 135.795 128.814L141.451 134.471ZM149.833 130.988C152.982 131.002 155.991 132.258 158.208 134.484L163.876 128.839C160.163 125.11 155.126 123.012 149.869 122.988L149.833 130.988ZM158.207 134.484C160.426 136.712 161.671 139.726 161.671 142.87H169.671C169.671 137.609 167.587 132.565 163.876 128.839L158.207 134.484ZM161.671 142.87V153.881H169.671V142.87H161.671Z" fill="#159AFF" mask="url(#path-7-inside-1_27_189)"/>
+                <path d="M126.53 185.695V157.751H173.178V185.695H126.53Z" fill="#159AFF" stroke="#159AFF" stroke-width="4"/>
+                </g>
+                <defs>
+                <filter id="filter0_d_27_189" x="0" y="0" width="329" height="369" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_27_189"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_27_189" result="shape"/>
+                </filter>
+                </defs>
+                </svg>
+
+        </div>
+    </div>
+    <div class="cnt-box" >
+        <div>
+            <svg width="172" height="208" viewBox="0 0 322 358" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect y="25" width="294" height="333" rx="10" fill="#00488A"/>
+                <rect x="30" y="2" width="290" height="329" rx="8" fill="white" stroke="#159AFF" stroke-width="4"/>
+                <path d="M146.789 235.979L145.879 238.307L146.789 235.979C109.775 221.514 91.4953 179.786 105.959 142.778C120.422 105.771 162.152 87.4963 199.165 101.962C236.179 116.428 254.458 158.155 239.995 195.163C225.532 232.17 183.802 250.444 146.789 235.979Z" stroke="#159AFF" stroke-width="5"/>
+                <path d="M151.915 170.987L164.463 151.31L151.915 170.987ZM193.185 168.731L183.303 151.499L193.185 168.731ZM185.054 187.185L163.375 187.098L185.054 187.185Z" fill="#E6007A"/>
+                <path d="M197.009 203.255C205.933 206.747 216.008 202.303 219.512 193.327C223.015 184.352 218.62 174.245 209.696 170.753C200.772 167.261 190.696 171.706 187.193 180.681C183.69 189.656 188.084 199.763 197.009 203.255Z" fill="#159AFF"/>
+                <path d="M135.964 203.537C144.889 207.028 154.964 202.583 158.467 193.608C161.971 184.633 157.576 174.526 148.652 171.034C139.727 167.542 129.652 171.987 126.149 180.962C122.645 189.938 127.04 200.044 135.964 203.537Z" fill="#159AFF"/>
+                <path d="M167.498 152.411C176.422 155.903 186.498 151.458 190.001 142.483C193.504 133.508 189.11 123.401 180.185 119.909C171.261 116.417 161.186 120.862 157.682 129.837C154.179 138.812 158.574 148.919 167.498 152.411Z" fill="#159AFF"/>
+                </svg>
+
+        </div>
+        <div  class="fstbox-rght">
+           <span>
+            DocShield employs Blockchain for robust document security, leveraging tamper-proofing and immutability to ensure trustworthiness, reducing fraud risks.
+           </span>
+        </div>
+    </div>
+   </div>
+   <br>
+   <div style="height:auto; width:auto;display: flex; justify-content: center; align-items: center; background-color: #F8F8F8; flex-direction: column; row-gap: 20px; padding: 1.5vw;">
+     <div style="display:flex; justify-content:center; align-items: center; flex-direction:row ; height: auto; width: 100%;">
+         <div class="round-cards">
+            <svg width="68" height="69" viewBox="0 0 88 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M66.0001 7.76074H22.0001C17.95 7.76074 14.6667 11.044 14.6667 15.0941V73.7607C14.6667 77.8108 17.95 81.0941 22.0001 81.0941H66.0001C70.0502 81.0941 73.3334 77.8108 73.3334 73.7607V15.0941C73.3334 11.044 70.0502 7.76074 66.0001 7.76074Z" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M33 81.0939V66.4272H55V81.0939" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M29.3333 22.4272H29.3679" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M58.6667 22.4272H58.7014" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M44 22.4272H44.0347" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M44 37.0938H44.0347" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M44 51.7607H44.0347" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M58.6667 37.0938H58.7014" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M58.6667 51.7607H58.7014" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M29.3333 37.0938H29.3679" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M29.3333 51.7607H29.3679" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+         </div>
+        <span class="cardline"></span>
+         <div class="round-cards">
+            <svg width="58" height="59" viewBox="0 0 88 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M58.6667 77.4272V70.0939C58.6667 66.2041 57.1215 62.4735 54.3709 59.723C51.6204 56.9725 47.8899 55.4272 44 55.4272H22C18.1102 55.4272 14.3797 56.9725 11.6291 59.723C8.87861 62.4735 7.33337 66.2041 7.33337 70.0939V77.4272" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M33 40.7606C41.1002 40.7606 47.6667 34.1941 47.6667 26.0939C47.6667 17.9937 41.1002 11.4272 33 11.4272C24.8999 11.4272 18.3334 17.9937 18.3334 26.0939C18.3334 34.1941 24.8999 40.7606 33 40.7606Z" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M80.6666 77.4271V70.0938C80.6642 66.8441 79.5826 63.6873 77.5916 61.119C75.6007 58.5506 72.8131 56.7162 69.6666 55.9038" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M58.6666 11.9038C61.8215 12.7116 64.6178 14.5464 66.6146 17.1189C68.6115 19.6915 69.6954 22.8555 69.6954 26.1121C69.6954 29.3688 68.6115 32.5328 66.6146 35.1053C64.6178 37.6779 61.8215 39.5127 58.6666 40.3205" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+
+         </div>
+         <span class="cardline"></span>
+         <div class="round-cards">
+            <svg width="58" height="59" viewBox="0 0 88 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M56.8333 7.76074H31.5333C30.0666 7.76074 28.6 8.49408 27.5 9.59408C26.4 10.6941 25.6666 12.1607 25.6666 13.6274V60.5607C25.6666 62.0274 26.4 63.4941 27.5 64.5941C28.6 65.6941 30.0666 66.4274 31.5333 66.4274H67.4666C68.9333 66.4274 70.4 65.6941 71.5 64.5941C72.6 63.4941 73.3333 62.0274 73.3333 60.5607V24.2607L56.8333 7.76074Z" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 28.2939V75.2273C11 76.6939 11.7333 78.1606 12.8333 79.2606C13.9333 80.3606 15.4 81.0939 16.8667 81.0939H52.8" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M55 7.76074V26.0941H73.3333" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+         </div>
+         <span class="cardline"></span>
+         <div class="round-cards">
+            <svg width="58" height="59" viewBox="0 0 88 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M44 7.76074L55.33 30.7141L80.6666 34.4174L62.3333 52.2741L66.66 77.5007L44 65.5841L21.34 77.5007L25.6666 52.2741L7.33331 34.4174L32.67 30.7141L44 7.76074Z" stroke="#159AFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+         </div>
+     </div>
+     <div style="height:auto; width:100%; display: flex; justify-content: center; align-items: center; flex-direction: row; column-gap: 19vw; font-size: 2vw; font-weight: 600;">
+        <span>12</span>
+        <span>152</span>
+        <span>287</span>
+        <span>7</span>
+     </div>
+     <div style="height:auto; width:100%; display: flex; justify-content: center; align-items: center; flex-direction: row; column-gap: 16vw; font-size: 1.5vw; ">
+        <span>Organization
+           </span>
+        <span> Recipients
+           </span>
+        <span> Documents
+            </span>
+        <span>Categories</span>
+     </div>
+   </div>
+</main>
+<br><br>
+
+<footer>
+<div style="height:200px; width:100%; background-color: #00488A;">
+
+</div>
+</footer>

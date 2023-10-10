@@ -1,0 +1,135 @@
+@font-face {
+  font-family: manifapro;
+  src: url(../../../assets/Fonts/ManifaPro2_2.224-Regular.otf) format('opentype');
+}
+
+
+body{
+  font-family: manifapro;
+}
+
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+  min-height: 5vh;
+
+}
+
+::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+
+
+.transition-box {
+    width: 100px;
+    height: 100px;
+    background-color: blue; /* Initial color */
+    transition: background-color 0.3s ease; /* Apply transition to background-color */
+  }
+  
+  .transition-box:hover {
+    background-color: red; /* Color on hover */
+  }
+
+
+  @keyframes slideAnimation {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(1000px);
+    }
+  }
+  
+  .animated-element {
+    animation: slideAnimation 2s linear ease-out; /* Apply the animation */
+  }
+
+  .dialog-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .left-side{
+    padding:2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:auto;
+    width:30vw;
+    // border:2px solid grey;
+
+  }
+  .right-side{
+    padding:2vw;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    height:auto;
+    width:30vw;
+    // border:2px solid grey;
+  }
+  .line{
+    border-left: 4px solid;
+    border-color: #c9c9c9;
+    // border-color: linear-gradient(to bottom, #00488a, #095ba6, #116fc3, #1584e1, #159aff);
+    border-radius: 10px;
+    height: 60vh; /* Adjust height as needed */
+    margin: 0 10px;
+    
+    // width:4px;
+    // height:100%;
+    // border:2px solid red;
+    // background-color: #00488A;
+  }
+
+
+  
+  #searchbar,#searchbar2{
+    font-family: manifapro;
+    padding:0px; width:30vw; height:2vh; border-radius: 25px;
+}
+
+#signinbtn{
+  font-family: manifapro;
+  height:3rem;
+  width:30vw;
+  background: #159AFF;
+  color:white;
+  font-family: inherit;
+}
+#forgetpassword{
+  font-family: manifapro;
+  height:3rem;
+  width:30vw;
+  background: #ffffff;
+  color:rgb(72, 130, 255);
+  font-family: inherit;
+}
+
+
+span{
+  font-family: manifapro;
+}
+
+// .animationdialog {
+//   transform: translateX(100%);
+//   animation: modal-slide 1s ease-in-out;
+// }
+
+// @keyframes modal-slide {
+//   from {
+//     transform: translateX(100%);
+//   }
+//   to {
+//     transform: translateX(0);
+//   }
+// }

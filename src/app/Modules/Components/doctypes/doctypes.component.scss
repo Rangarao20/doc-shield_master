@@ -1,0 +1,74 @@
+@font-face {
+  font-family: manifapro;
+  src: url(../../../../assets/Fonts/ManifaPro2_2.224-Regular.otf) format('opentype');
+}
+
+
+span{
+  font-family: manifapro;
+  font-size: 1vw;
+}
+
+button, input{
+  font-family: manifapro;
+  font-size: 1vw;
+}
+
+.example-container {
+  width: 100%;
+  height:89.5vh;
+
+}
+
+.example-sidenav-content {
+  padding: 20px;
+
+}
+
+.example-sidenav {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height:100%;
+  width:auto;
+}
+
+.list-item{
+  border-bottom: 1.5px solid rgb(199, 199, 199);
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.list-item:hover{
+  cursor: pointer;
+}
+
+.list-item.clicked {
+  border-left: 4px solid #159AFF;
+  background-color: #fafdff;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.search-icon {
+  margin-right: 5px;
+  color: gray;
+}
+input {
+  outline: none;
+  border: none;
+}
+
+.submit
+{
+  background-color: #159AFF;
+  border-radius: 4px;
+  color: white;
+  opacity: 75px;
+}
+

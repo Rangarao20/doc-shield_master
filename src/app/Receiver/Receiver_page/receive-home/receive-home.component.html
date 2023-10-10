@@ -1,0 +1,29 @@
+<mat-toolbar style="background-color: #083b6b;">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon style="color:#159AFF">verified_user</mat-icon>
+  </button>
+  <span style="color:white;" class="header-text">Doc</span><span style="color:#159AFF;" class="header-text">Shield</span>
+  <div style="display: flex; justify-content: right;  align-items: center; align-content: flex-end; flex-wrap: nowrap; flex-direction: row; column-gap: 1.67vw;  border-radius: 0;" class="example-spacer">
+      <nav >
+          <a>Home</a>
+          <div class="animation start-home"></div>
+        </nav>
+        <div class="demo-section" >
+          <mat-icon  matBadgeColor="warn" matBadgeOverlap="false"  style="font-size: 30px; line-height: -15px;">notifications</mat-icon>
+            <!-- Include text description of the icon's meaning for screen-readers -->
+            <span class="cdk-visually-hidden">
+              Example with a home icon with overlaid badge showing the number 15
+            </span>
+        </div>
+        <div  style="display: flex; justify-content: center; align-items: center; flex-direction: row; column-gap: 10px;">
+          <img   src="../../../../assets/images/21212112.png"  alt="Loading" class="profile-image">
+          <span  style="color:white;">Rangarao</span>
+          <button mat-raised-button class="example-icon" (click)="logout()"  color="primary">Logout</button>
+      </div>
+  </div>
+</mat-toolbar>
+<div >
+  <router-outlet>
+
+  </router-outlet>
+</div>

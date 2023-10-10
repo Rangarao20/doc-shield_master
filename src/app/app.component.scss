@@ -1,0 +1,13 @@
+@font-face {
+    font-family: manifapro;
+    src: url(../assets/Fonts/ManifaPro2_2.224-Regular.otf) format('opentype');
+}
+
+
+body{
+    font-family: manifapro;
+}
+
+::ng-deep .mat-form-field-placeholder {
+    font-size: 1vw;
+  }

@@ -1,0 +1,126 @@
+<div style="
+    height: 65vh;
+    width: 60vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    padding: 0px;
+  ">
+  <div style="
+      height: 180%;
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      row-gap: 2vw;
+      background-color: #00488a;
+      padding-top: 1vw;
+    ">
+    <img src="../../../assets/SVG/certificate2.svg" />
+
+    <span style="color: white">Document Details</span>
+
+    <!-- <mat-form-field class="mffw" appearance="outline">
+      <mat-select [(ngModel)]="selectedValue" name="docment">
+        <mat-option
+          *ngFor="let doc of formstemp; let i = index"
+          [value]="doc.certificate_name"
+          (click)="selecteditem(i)" >
+          {{ doc.certificate_name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+  </div>
+
+  <div style="height: 100%; width: 70%">
+    <form [formGroup]="form" style="
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-direction: column;
+        row-gap: 3vw;
+        padding-left: 2vw;
+        padding-top: 1vw;
+      ">
+      <div formArrayName="items" style="
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex-direction: column;
+          row-gap: 2vw;
+          width: auto;
+          border-radius: 5px;
+          padding-top: 2vw;
+          padding-bottom: 2vw;
+          padding-left: 2vw;
+        ">
+        <div style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            column-gap: 1.5vw;
+            width: 90%;
+          " *ngFor="let item of itemsFormArray.controls; let i = index" [formGroupName]="i">
+          <div style="width: 130px; height: auto; text-align: left">
+            <mat-label>{{ item.value.Label }}</mat-label>
+          </div>
+
+          <mat-form-field appearance="outline" id="searchbar">
+            <div style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+              ">
+              <input matInput placeholder="" id="name" formControlName="name"  value={{item.value.name}}/>
+            </div>
+          </mat-form-field>
+        </div>
+        <!-- <div style=" display: flex; justify-content:center; align-items: center; flex-direction: row; column-gap: 1.5vw;">
+      <div style="width:130px; height:auto; text-align: left;">  <span>Recipient Name</span></div>
+       <mat-form-field appearance="outline"  id="searchbar">
+           <div style="display:flex; justify-content: center; align-items: center; flex-direction: row;">
+            <input  matInput placeholder="Enter the course name">
+           </div>
+        </mat-form-field>
+      </div>
+      <div style=" display: flex; justify-content:center; align-items: center; flex-direction: row; column-gap: 1.5vw;">
+       <div style="width:130px; height:auto; text-align: left;"> <span> Duration</span></div>
+       <mat-form-field appearance="outline"  id="searchbar">
+           <div style="display:flex; justify-content: center; align-items: center; flex-direction: row;">
+            <input  matInput placeholder="Enter the course name">
+           </div>
+        </mat-form-field>
+      </div> -->
+      </div>
+
+      <div style="
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          flex-direction: column;
+          row-gap: 2vw;
+          height: auto;
+          width: auto;
+          border-radius: 5px;
+          padding-bottom: 1vw;
+        ">
+      </div>
+
+      <div style="
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          flex-direction: row;
+          column-gap: 2vw;
+          width: 100%;
+        ">
+        <button mat-button (click)="ok()">Close</button>
+        <!-- <button mat-button (click)="onSubmit()">Submit</button> -->
+      </div>
+    </form>
+  </div>
+</div>

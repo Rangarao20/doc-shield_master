@@ -1,0 +1,109 @@
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened class="example-sidenav">
+        <mat-list>
+            <div mat-subheader style="display: flex; justify-content: space-between; align-items: center; flex-direction: row; column-gap: 7vw;">
+                <div class="search-container">
+                    <mat-icon class="search-icon">search</mat-icon>
+                    <input type="search" [(ngModel)]="searchText" (ngModelChange)="onSearchTextChange()" placeholder="Search">
+                </div>
+                 <mat-icon style="color:#159AFF; border:2px solid #159AFF; border-radius: 5px; cursor:pointer;" (click)="addfield()">add</mat-icon>
+            </div>
+            <div mat-subheader style="display: flex; justify-content: space-between; align-items: center; flex-direction: row; column-gap: 7vw;"  *ngIf="inputfield" >
+              <div class="search-container">
+                  <mat-icon class="search-icon">add</mat-icon>
+                  <input type="search"  placeholder="Create new Certificate" (keydown.enter)="onEnterfield()" [(ngModel)]="certificatename" >
+              </div>
+              <mat-icon style="color:#ff5858; border:2px solid #ff5858; border-radius: 50%; cursor:pointer;" (click)="removefield()">remove</mat-icon>
+            </div>
+            <mat-list-item *ngFor="let folder of formstemp; let i = index"   [class.clicked]="clickedIndex === i"
+            (click)="selecteditem(folder,i)" class="list-item">
+              <!-- #CCE6D8 <mat-icon matListItemIcon>folder</mat-icon> -->
+              <div matListItemTitle  ><span style="font-size: 1.2vw;"> {{i + 1}}.{{folder.certificate_name}}</span></div>
+              <br>
+              <div matListItemLine style=" display: flex; justify-content: flex-start; align-items: center;  padding-left: 7px; padding-top: 7px;"><span style="color:rgb(159, 246, 190); background-color:#419468; padding: 2px; border-radius: 1px;"> {{folder.status}}</span></div>
+            </mat-list-item>
+        </mat-list>
+    </mat-drawer>
+    <div class="example-sidenav-content" >
+        <div style="display:flex; justify-content: space-between; align-items: center; width:100%; height:auto; flex-direction: row;">
+           <div style="display:flex; justify-content: space-between; align-items: center; padding:10px; height:auto; width:auto; flex-direction: row; column-gap: 10px; ">
+              <span style="font-size: 1.2vw;">
+                 {{certificate_name}}
+              </span>
+              <mat-icon style="color:#00488A">edit</mat-icon>
+           </div>
+
+           <div>
+            <button mat-button  style="border:2px solid #00488A; color:#00488A"><mat-icon>zoom_out</mat-icon><span>Design Template</span></button>
+           </div>
+        </div>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false" style="width: 100%; height:auto;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon style="color:#00488A">bookmark</mat-icon>
+                    &nbsp; &nbsp;
+                  <span>Document Fields Template</span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div style="display:flex; justify-content: flex-end; align-items: center; width:100%; height:auto; ">
+                <button mat-button  style="border:2px solid #00488A; color:#00488A" (click)="addItem()"><mat-icon>add</mat-icon><span>Add</span></button>
+              </div>
+              <br>
+              <!-- <mat-list role="list" *ngFor="let item of Fieldsarray; let i = index" >
+
+                <mat-list-item role="listitem">
+                  <div style="display:flex; justify-content: space-between; align-items: center; width:100%; height:auto;  ">
+                    <div style="display:flex; justify-content: space-evenly; align-items: center; flex-direction: row; column-gap: 2vw;">
+                     <span>Label</span>
+                    <div class="search-container">
+                        <input type="text" [(ngModel)]="searchText"  placeholder="Label" value="label1">
+                    </div>
+                    <span>Description</span>
+                     <div class="search-container">
+                      <input type="text" [(ngModel)]="searchText"  placeholder="Description">
+                    </div>
+                    </div>
+                      <mat-icon style="color:#afafaf; border:2px solid #949494; border-radius: 50%; cursor:pointer;" >remove</mat-icon>
+
+                </div>
+                </mat-list-item>
+              </mat-list> -->
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div formArrayName="items">
+                  <mat-list role="list" *ngFor="let item of itemsFormArray.controls; let i = index" [formGroupName]="i">
+                    <!-- {{item.Label}} {{item.Description}} -->
+                    <mat-list-item role="listitem">
+                      <div style="display:flex; justify-content: space-between; align-items: center; width:100%; height:auto;  ">
+                        <div style="display:flex; justify-content: space-evenly; align-items: center; flex-direction: row; column-gap: 2vw;">
+                         <span>Label</span>
+                        <div class="search-container">
+                            <input type="text"  id="name"  placeholder="Label" formControlName="name">
+                        </div>
+                        <!-- <span>Description</span>
+                         <div class="search-container">
+                          <input type="text"   id="Description"  placeholder="Description" formControlName="Description">
+                        </div> -->
+                        </div>
+                          <mat-icon style="color:#afafaf; border:2px solid #949494; border-radius: 50%; cursor:pointer;" (click)="removeItem(i)" >remove</mat-icon>
+
+                    </div>
+                    </mat-list-item>
+                  </mat-list>
+                    </div>
+                    <button mat-button class = "submit">Submit</button>
+               </form>
+
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <div>
+
+
+
+        </div>
+    </div>
+    <!-- <mat-drawer-content class="example-sidenav-content" >Main content</mat-drawer-content> -->
+  </mat-drawer-container>
