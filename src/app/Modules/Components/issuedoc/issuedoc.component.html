@@ -2,13 +2,13 @@
 <div style="padding:1.9vw;">
   <div style="display: flex; justify-content: space-between; align-items: center; flex-direction: row; height:50px; ">
    <div>
-      <span style="font-size: 1.8vw;">Pending Issuance</span>
+      <span style="font-size: 1.8vw;">Issued Documents</span>
    </div>
    <div>
-    <div class="search-container">
+    <!-- <div class="search-container">
       <mat-icon class="search-icon">search</mat-icon>
       <input type="search" [(ngModel)]="searchText" (ngModelChange)="onSearchTextChange()" placeholder="Search">
-  </div>
+  </div> -->
       <!-- <mat-form-field appearance="outline"  id="homesearchbar">
           <mat-icon matSuffix id="searchicon">search</mat-icon>
           <div style="display:flex; justify-content: center; align-items: center; flex-direction: row;">
@@ -18,70 +18,72 @@
    </div>
   </div>
   <br>
-
-      <section class="example-container mat-elevation-z0" tabindex="0">
-          <table mat-table [dataSource]="filteredItems">
-
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-              <th mat-header-cell *matHeaderCellDef> Document Id </th>
-              <td mat-cell *matCellDef="let element"> {{element.document_id}} </td>
-            </ng-container>
-
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Issued to </th>
-              <td mat-cell *matCellDef="let element"> <div class="mbox9">
-                <!-- ['EmployeeName', 'BadgeNumber', 'Sticker']; -->
-                <!-- <img src="../../../../assets/images/sampleimage.jpeg" width="32px" height="32px" id="profileimg"> -->
-                <mat-icon style="font-size: 2vw; padding: 0.5vw; z-index: 1;">account_circle</mat-icon>
-                &nbsp;
-                {{element.receiver_id}}
-              </div> </td>
-            </ng-container>
-            <!-- Weight Column -->
-            <ng-container matColumnDef="weight">
-              <th mat-header-cell *matHeaderCellDef> Document details </th>
-              <td mat-cell *matCellDef="let element"> {{element.document_title}} </td>
-            </ng-container>
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="symbol">
-              <th mat-header-cell *matHeaderCellDef> Status </th>
-              <td mat-cell *matCellDef="let element"> <mat-icon *ngIf="element.status == 1" style="color:rgb(164, 151, 10);">watch_later</mat-icon>
-                <mat-icon *ngIf="element.status == 2" style="color: rgb(53, 151, 26);">done</mat-icon>
-                <mat-icon *ngIf="element.status == 3" style="color: rgb(246, 10, 10);">error icon</mat-icon>
-                {{ element.status == 2 ? 'Approved' : (element.status == 3 ? 'Rejected' : 'Awaiting Approval') }}
-                <div class="mbox10">
-              </div>
-           </td>
-            </ng-container>
-            <ng-container matColumnDef="View">
-              <th mat-header-cell *matHeaderCellDef> View Certificate </th>
-              <td mat-cell *matCellDef="let element">
-                <div class="mbox10">
-                  <button mat-button (click)=" downloadFile(element.doc_file, 'Certificate.pdf')">
-                    <img src="../../../../assets/images/documents.png" alt="pdf" width="32px" height="32px" />
-                  </button>
-              </div>
-              <!-- <img [src]="basestring1" alt="Your Image"> -->
-           </td>
+        <section style="display: flex;align-items: baseline; justify-content: space-between;">
+          <div>
+              <mat-form-field style="font-size: small; width: 8rem" appearance="outline">
+                  <mat-select  [(ngModel)] = "selectedOption" [placeholder] = "selectedOption" (selectionChange)="statusChange($event.value)" class="search-container">
+                      <mat-option *ngFor="let element of dataSource" [value]="element.status" class="search-container">{{element.status}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </div>
+          <mat-form-field style="width: 30%" appearance="outline">
+              <input autocomplete="off" matInput (keyup)="applyFilter($event)" placeholder="Search"/>
+              <mat-icon matPrefix fontIcon="search" style="color: rgb(50, 190, 245);"></mat-icon>
+          </mat-form-field>
+      </section>
+        <section>
+          <div style="display: grid;">
+              <table mat-table [dataSource]="filteredItems1" class="mat-elevated-table">
+                  <ng-container matColumnDef="position">
+                      <th mat-header-cell *matHeaderCellDef >Document Id</th>
+                      <td mat-cell *matCellDef="let element" [ngStyle] = "element.status == '1' ? {'border-left': '3px solid #FF8B13'}
+                      : element.status == '2' ? {'border-left':'3px solid #8EAC50'} : {'border-left':'3px solid #8EAC50'}">
+                          <span (click)="details(element.doc_det)">
+                                  {{ element.document_id}}
+                              </span>
+                      </td>
+                  </ng-container>
+                  <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef>Issued To</th>
+                      <td mat-cell *matCellDef="let element">
+                        <div class = "icon">
+                       <mat-icon style="font-size: 2vw; padding: 0.5vw; z-index: 1;">account_circle</mat-icon>
+                       </div>
+                        &nbsp;{{element.receiver_id}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="weight">
+                    <th mat-header-cell *matHeaderCellDef>Document Details</th>
+                    <td mat-cell *matCellDef="let element">{{ element.document_title}}</td>
+                </ng-container>
+                <ng-container matColumnDef="symbol">
+                  <th mat-header-cell *matHeaderCellDef>Status</th>
+                  <td mat-cell *matCellDef="let element">
+                    <div class = "icon">
+                    <mat-icon *ngIf="element.status == 2" style="color: rgb(53, 151, 26);">done</mat-icon>
+                    <mat-icon *ngIf="element.status == 1" style="color: rgb(209, 120, 19);">history</mat-icon>
+                    <mat-icon *ngIf="element.status == 3" style="color: rgb(246, 10, 10);">error icon</mat-icon>
+                  </div>
+                    {{ element.status == 2 ? 'Approved' : (element.status == 3 ? 'Rejected' : 'Awaiting Approval') }}</td>
+              </ng-container>
+              <ng-container matColumnDef="View">
+                <th mat-header-cell *matHeaderCellDef>View Document</th>
+                <td mat-cell *matCellDef="let element"><button mat-button (click)=" downloadFile(element.doc_file, 'Certificate.pdf')">
+                  <img src="../../../../assets/images/documents.png" alt="pdf" width="32px" height="32px" />
+                </button></td>
             </ng-container>
             <ng-container matColumnDef="details">
-              <th mat-header-cell *matHeaderCellDef> View Document</th>
-              <td mat-cell *matCellDef="let element">
-                <div class="mbox10">
-                  <button mat-button (click)="details(element.doc_det)">
-                    <img src="../../../../assets/images/details.png" alt="pdf" width="32px" height="32px" />
-                  </button>
-              </div>
-              <!-- <img [src]="basestring1" alt="Your Image"> -->
-           </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" style="background-color: #D9EFFD;"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"  class="data-item"></tr>
-          </table>
-        </section>
-
+              <th mat-header-cell *matHeaderCellDef>Details</th>
+              <td mat-cell *matCellDef="let element" [ngStyle] = "element.status == '1' ? {'border-right': '3px solid #FF8B13'}
+              : element.status == '2' ? {'border-right':'3px solid #8EAC50'} : {'border-right':'3px solid #8EAC50'}">  <button mat-button (click)="details(element.doc_det)">
+                <img src="../../../../assets/images/details.png" alt="pdf" width="32px" height="32px" />
+              </button></td>
+          </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns" class = "custom-header"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns" ></tr>
+        </table>
+        <!-- <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 15,filteredItems1.data.length]"></mat-paginator> -->
+          </div>
+          <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 15,filteredItems1.data.length]"></mat-paginator>
+      </section>
 
   </div>

@@ -28,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
@@ -82,6 +83,7 @@ import { SigninComponent } from './Dialogs/signin/signin.component';
     IssuerModule,
     SharedDialogsModule,
     HttpClientModule,
+    MatPaginatorModule,
     NgxAwesomePopupModule.forRoot(), // Essential, mandatory main module.
     DialogConfigModule.forRoot(), // Needed for instantiating dynamic components.
     ConfirmBoxConfigModule.forRoot(), // Needed for instantiating confirm boxes.

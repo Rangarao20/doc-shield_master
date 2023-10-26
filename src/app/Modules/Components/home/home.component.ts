@@ -17,50 +17,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class HomeComponent {
   displayedColumns = ['position', 'name', 'weight', 'symbol', 'View', 'details'];
-  dataSource: any = [
-    {
-      position: 1,
-      name: 'Vengadassalabady, Dinesh',
-      weight:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      symbol: 'watch_later',
-    },
-    {
-      position: 2,
-      name: 'Venu, Hariharan',
-      weight:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      symbol: 'watch_later',
-    },
-    {
-      position: 3,
-      name: 'Kalaivanan, chidambaram',
-      weight:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      symbol: 'watch_later',
-    },
-    {
-      position: 4,
-      name: 'Vengadassalabady, Dinesh',
-      weight:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      symbol: 'watch_later',
-    },
-    {
-      position: 5,
-      name: 'Vengadassalabady, Dinesh',
-      weight:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      symbol: 'watch_later',
-    },
-    {
-      position: 6,
-      name: 'Vengadassalabady, Dinesh',
-      weight:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrudexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
-      symbol: 'watch_later',
-    },
-  ];
+
   searchText: string = '';
   filteredItems: any;
   filterit : any;
@@ -76,7 +33,7 @@ export class HomeComponent {
       const id = params['id']; // Get the value of the 'id' parameter
       // Use the 'id' value as needed
     });
-    let url = 'http://localhost:5000/issue';
+    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/issue';
     let url1 = url + '/' + this.user;
     this.data.isssued_doc(url).subscribe((data) => {
       console.log(data);

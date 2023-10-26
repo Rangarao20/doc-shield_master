@@ -10,9 +10,11 @@ import {
   ToastUserViewTypeEnum,
 } from '@costlydeveloper/ngx-awesome-popup';
 import { Component, Inject } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
+import { BackendService } from 'src/app/Services/backend.service';
+import { CookieService } from 'ngx-cookie-service';
 import { DataService } from 'src/app/data.service';
 import { ErrorDiaglogComponent } from 'src/app/error-diaglog/error-diaglog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -34,14 +36,19 @@ export class SigninComponent {
     private router: Router,
     private data: DataService,
     public dialogRef: MatDialogRef<SigninComponent>,
+    private cookieService: CookieService,
+    private backend: BackendService,
     public dialog: MatDialog // @Inject(MAT_DIALOG_DATA)  data:DataService,
   ) {}
-  signin() {
-    let url = 'http://localhost:5000/userlogin';
+  signin()
+  {
+    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/userlogin';
     let params = new URLSearchParams();
     let name = (document.getElementById('user') as HTMLInputElement).value;
     let pass = (document.getElementById('pass') as HTMLInputElement).value;
-
+    this.cookieService.set('myCookie', 'myValue');
+    const value = this.cookieService.get('myCookie');
+    console.log(value);
     if (name === '' || pass === '') {
       // const errorMessage = 'Please Enter the Username or Password';
       // this.openErrorDialog(errorMessage);
@@ -56,20 +63,73 @@ export class SigninComponent {
       //    console.log(data);
 
       //  })
+      const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+      const body = { name, pass };
+      // JSON.stringify(body);
+      // this.data.login1(body).subscribe((data) =>
+      // {
+      //   console.log(data);
+      //   const Token = this.cookieService.get('jwt');
+      //   console.log(Token);
+      //   localStorage.setItem('jwt', Token);
+      //   if (data.length === 0)
+      //   {
+      //         const errorMessage = 'User Does Not Exists';
+      //         this.openErrorDialog(errorMessage);
+      //       }
+      //       else {
+      //         const p = data[0].Password;
+      //         const r = data[0].Role;
+      //         const user = data[0].Name;
+      //         if (pass == p) {
+      //           this.flag = 1;
+      //           console.log(this.flag);
+      //           if (this.flag == 1) {
+      //             // const errorMessage = 'Login Succesfull !';
+      //             // this.openErrorDialog(errorMessage);
+      //             // this.dialogRef.close();
+      //             this.toastNotification();
+      //             if (r == 'Issuer')
+      //             {
+      //               this.router.navigateByUrl('/main' ,{state:{data:user}});
+      //             }
+      //             else if (r == 'Signer')
+      //             {
+      //               this.router.navigateByUrl('/sigin_issue',{state:{data:user}});
+      //             }
+      //             else if (r == 'Receiver')
+      //             {
+      //               this.router.navigateByUrl('/receiver_home');
+      //             }
+      //             this.dialogRef.close();
+      //           }
+      //         } else {
+      //           this.toastNotification1();
+      //           // const errorMessage = 'Wrong password. Please try again.'; // Customize the error message
+      //           // this.openErrorDialog(errorMessage);
+      //         }
+      //       }
+
+      // });
       this.data.login(url1).subscribe((data) => {
         console.log(data);
         this.users = data;
-        if (data.length === 0) {
+        if (data.length === 0)
+         {
           const errorMessage = 'User Does Not Exists';
           this.openErrorDialog(errorMessage);
-        } else {
-          const p = data[0].Password;
-          const r = data[0].Role;
-          const user = data[0].Name;
-          if (pass == p) {
+        }
+        else
+         {
+          const p = data[0].password;
+          const r = data[0].role;
+          const user = data[0].name;
+          if (pass == p)
+           {
             this.flag = 1;
             console.log(this.flag);
-            if (this.flag == 1) {
+            if (this.flag == 1)
+             {
               // const errorMessage = 'Login Succesfull !';
               // this.openErrorDialog(errorMessage);
               // this.dialogRef.close();
@@ -88,7 +148,8 @@ export class SigninComponent {
               }
               this.dialogRef.close();
             }
-          } else {
+          }
+          else {
             this.toastNotification1();
             // const errorMessage = 'Wrong password. Please try again.'; // Customize the error message
             // this.openErrorDialog(errorMessage);

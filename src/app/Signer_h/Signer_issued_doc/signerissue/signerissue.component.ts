@@ -25,7 +25,7 @@ export class SignerissueComponent {
 
   constructor(private data: DataService, private cd: ChangeDetectorRef, public dialog: MatDialog) {}
   async ngOnInit() {
-    let url = 'http://localhost:5000/docdet';
+    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/docdet';
     this.data.signer(url).subscribe((response) => {
       console.log(response);
       this.filteredItems = response;

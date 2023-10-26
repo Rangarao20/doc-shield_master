@@ -39,7 +39,7 @@ export class DoctypesComponent {
     });
     console.log(this.service.certificates);
 
-    let url = 'http://localhost:5000/doctype';
+    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sas/doctype';
 
     this.data.certificate(url).subscribe((data) => {
       if (data.length === 0)

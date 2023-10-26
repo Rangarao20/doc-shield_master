@@ -5,7 +5,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BackendService {
+export class BackendService 
+{
+
+  getToken(): string | null {
+    return localStorage.getItem('jwt');
+  }
+
+  removeToken() {
+    localStorage.removeItem('jwt');
+  }
 
   certificates: any = [
     {
@@ -54,9 +63,5 @@ export class BackendService {
   ];
   constructor(private httpclient: HttpClient) { }
 
-  certificate(url:any): Observable<any>
-  {
-    return this.httpclient.get(url);
-  }
 
 }

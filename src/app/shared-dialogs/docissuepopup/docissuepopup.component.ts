@@ -57,7 +57,7 @@ export class DocissuepopupComponent {
       file: [null], // Initialize an empty FormArray
     });
 
-    let url = 'http://localhost:5000/doctype';
+    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/doctype';
     this.data.certificate(url).subscribe((data) => {
       console.log(data);
       this.formstemp = data;
@@ -134,7 +134,7 @@ export class DocissuepopupComponent {
       Issuer: 'IBM Issuer',
       Signer: 'Ashwin',
       Status: 1,
-      receiver_id: 'Rangarao',
+      receiver_id: this.form.value.items[0].name,
       receiver_mail_id: 'bharani@aramco.com',
       name: this.name,
       jsonb: jsond,
