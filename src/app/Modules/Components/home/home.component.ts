@@ -16,7 +16,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  displayedColumns = ['position', 'name', 'weight', 'symbol', 'View', 'details'];
+  displayedColumns = ['Document_Id', 'Issued_To', 'Document_Details', 'Status', 'View_Document', 'Details'];
 
   searchText: string = '';
   filteredItems: any;
