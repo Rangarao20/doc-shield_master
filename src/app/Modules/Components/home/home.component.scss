@@ -94,3 +94,10 @@ th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:la
   font-weight: bold;
 
 }
+.mat-elevated-table {
+  border-collapse: separate;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.14),
+              0 1px 4px 0 rgba(0, 0, 0, 0.12),
+              0 4px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}

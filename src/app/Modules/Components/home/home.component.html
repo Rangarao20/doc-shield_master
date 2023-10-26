@@ -24,7 +24,7 @@
 <br>
       <section>
         <div style="display: grid;">
-            <table mat-table [dataSource]="filteredItems">
+            <table mat-table [dataSource]="filteredItems"  class="mat-elevated-table">
                 <ng-container matColumnDef="Document_Id">
                     <th mat-header-cell *matHeaderCellDef>Document Id</th>
                     <td mat-cell *matCellDef="let element">
