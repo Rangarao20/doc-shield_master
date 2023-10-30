@@ -3,6 +3,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { DataService } from 'src/app/data.service';
 import { DocdetailsComponent } from 'src/app/shared-dialogs/docdetailspopoup/docdetails/docdetails.component';
+import { HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environment';
 
 @Component({
   selector: 'app-signerissue',
@@ -25,7 +27,7 @@ export class SignerissueComponent {
 
   constructor(private data: DataService, private cd: ChangeDetectorRef, public dialog: MatDialog) {}
   async ngOnInit() {
-    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/docdet';
+    let url = environment.api + '/docdet';
     this.data.signer(url).subscribe((response) => {
       console.log(response);
       this.filteredItems = response;
@@ -36,10 +38,30 @@ export class SignerissueComponent {
     throw new Error('Method not implemented.');
   }
 
-  approve(element: any, id: any) {
+  approve(element: any, id: any)
+  {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const status = 'approve'
+    const body = { id,status};
     let b = 'none';
     console.log(id);
-    this.data.app(id, b).subscribe((res) => {
+    this.data.app(body,headers).subscribe((res) => {
+      console.log(res);
+    });
+    location.reload();
+    const index = this.filteredItems.indexOf(element);
+    this.filteredItems.splice(index, 1);
+    this.cd.detectChanges();
+    console.log(this.filteredItems);
+  }
+  reject(element: any, id:any)
+  {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const status = 'reject'
+    const body = { id,status};
+    let b = 'none';
+    console.log(id);
+    this.data.app(body,headers).subscribe((res) => {
       console.log(res);
     });
     location.reload();

@@ -18,6 +18,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { BackendService } from 'src/app/Services/backend.service';
 import { DataService } from 'src/app/data.service';
+import { environment } from 'src/environment';
 
 @Component({
   selector: 'app-docissuepopup',
@@ -57,7 +58,7 @@ export class DocissuepopupComponent {
       file: [null], // Initialize an empty FormArray
     });
 
-    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/doctype';
+    let url = environment.api + '/doctype';
     this.data.certificate(url).subscribe((data) => {
       console.log(data);
       this.formstemp = data;
@@ -123,6 +124,10 @@ export class DocissuepopupComponent {
         reader.readAsDataURL(this.selectedFile);
     }
   }
+  cancel()
+  {
+    // this.dialogRef.close();
+  }
 
   onSubmit()
   {
@@ -178,8 +183,5 @@ export class DocissuepopupComponent {
     });
     newToastNotification.openToastNotification$();
   }
-  cancel()
-  {
-    // this.dialogRef.close();
-  }
+
 }

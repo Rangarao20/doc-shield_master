@@ -13,6 +13,7 @@ import { DataService } from 'src/app/data.service';
 import { DocdetailsComponent } from 'src/app/shared-dialogs/docdetailspopoup/docdetails/docdetails.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { environment } from 'src/environment';
 
 @Component({
   selector: 'app-issuedoc',
@@ -152,7 +153,8 @@ export class IssuedocComponent implements OnInit
     this.route.params.subscribe((params) => {
       const id = params['id'];
     });
-    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/issue';
+    let url = environment.api + '/issue';
+    // let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/issue';
     this.data.isssued_doc(url).subscribe((data) => {
       console.log(data);
       this.filteredItems = data;

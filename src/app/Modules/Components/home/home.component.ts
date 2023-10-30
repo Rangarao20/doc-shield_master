@@ -9,6 +9,7 @@ import { DocdetailsComponent } from 'src/app/shared-dialogs/docdetailspopoup/doc
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { environment } from 'src/environment';
 
 @Component({
   selector: 'app-home',
@@ -33,7 +34,8 @@ export class HomeComponent {
       const id = params['id']; // Get the value of the 'id' parameter
       // Use the 'id' value as needed
     });
-    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/issue';
+    let url = environment.api + '/issue';
+    // let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/issue';
     let url1 = url + '/' + this.user;
     this.data.isssued_doc(url).subscribe((data) => {
       console.log(data);

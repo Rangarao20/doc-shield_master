@@ -1,8 +1,10 @@
+import { Component, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
-import { Component } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 import { DocdetailsComponent } from 'src/app/shared-dialogs/docdetailspopoup/docdetails/docdetails.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-signer-main',
@@ -18,11 +20,33 @@ export class SignerMainComponent {
     'View',
     'details'
   ];
+  dataSource = [
+    {
+      status: 'All',
+    },
+    {
+      status: 'Approved',
+    },
+    {
+      status: 'Rejected',
+    },
+    {
+      status: 'Awaiting Approval',
+    },
+  ];
+  filteredItems1: any;
   filteredItems: any;
   base64StringWithoutPrefix: string = '';
   format: string = '';
+  pageSize = 5;
 
   constructor(private data: DataService, public dialog: MatDialog) {}
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  ngAfterViewInit() {
+    this.filteredItems.paginator = this.paginator;
+    this.pageSize = 5;
+  }
   ngOnInit() {
     this.data.signed().subscribe((response) => {
       console.log(response);

@@ -25,7 +25,7 @@
     <mat-form-field class="mffw" appearance="outline">
       <mat-select [(ngModel)]="selectedValue" name="docment">
         <mat-option *ngFor="let doc of formstemp; let i = index" [value]="doc.certificate_name"
-          (click)="selecteditem(i)">
+          (click)="selecteditem(i)" class="text">
           {{ doc.certificate_name }}
         </mat-option>
       </mat-select>
@@ -65,7 +65,7 @@
           <div style="width: 130px; height: auto; text-align: left">
             <!-- <span>{{item.name}}</span> -->
 
-            <mat-label>{{ item.value.Label }}</mat-label>
+            <mat-label class = "text">{{ item.value.Label }}</mat-label>
           </div>
 
           <mat-form-field appearance="outline" id="searchbar">
@@ -75,28 +75,11 @@
                 align-items: center;
                 flex-direction: row;
               ">
-              <input matInput placeholder="" id="name" formControlName="name" />
+              <input matInput placeholder="" id="name" formControlName="name" required="" class = "text"/>
             </div>
           </mat-form-field>
         </div>
-        <!-- <div style=" display: flex; justify-content:center; align-items: center; flex-direction: row; column-gap: 1.5vw;">
-      <div style="width:130px; height:auto; text-align: left;">  <span>Recipient Name</span></div>
-       <mat-form-field appearance="outline"  id="searchbar">
-           <div style="display:flex; justify-content: center; align-items: center; flex-direction: row;">
-            <input  matInput placeholder="Enter the course name">
-           </div>
-        </mat-form-field>
       </div>
-      <div style=" display: flex; justify-content:center; align-items: center; flex-direction: row; column-gap: 1.5vw;">
-       <div style="width:130px; height:auto; text-align: left;"> <span> Duration</span></div>
-       <mat-form-field appearance="outline"  id="searchbar">
-           <div style="display:flex; justify-content: center; align-items: center; flex-direction: row;">
-            <input  matInput placeholder="Enter the course name">
-           </div>
-        </mat-form-field>
-      </div> -->
-      </div>
-
       <div style="
           display: flex;
           justify-content: space-evenly;
@@ -118,7 +101,6 @@
           ">
           <span>Assign Signer</span>
         </div>
-
         <div style="
             padding-left: 2vw;
             display: flex;
@@ -133,7 +115,7 @@
           </div>
           <mat-form-field class="mffw" appearance="outline">
             <mat-select name="docment">
-              <mat-option *ngFor="let i of dropdownval;" [value]="i">
+              <mat-option *ngFor="let i of dropdownval;" [value]="i" class="text">
                 {{i}}
               </mat-option>
             </mat-select>
@@ -152,10 +134,8 @@
           ">
           <span>Upload File</span>
         </div>
-
         <input type="file" (change)="onFileSelected($event)" #fileInput class="fileupload" />
       </div>
-
       <div style="
           display: flex;
           justify-content: flex-end;
@@ -163,9 +143,9 @@
           flex-direction: row;
           column-gap: 2vw;
           width: 100%;
-        ">
-        <button mat-button>Cancel</button>
-        <button mat-button (ngsubmit)="onSubmit()">Submit</button>
+        " >
+        <button mat-button class = "text" (click)="cancel()">Cancel</button>
+        <button mat-button (ngsubmit)="onSubmit()" class = "text">Submit</button>
       </div>
     </form>
   </div>

@@ -18,6 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { DataService } from 'src/app/data.service';
 import { ErrorDiaglogComponent } from 'src/app/error-diaglog/error-diaglog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { environment } from 'src/environment';
 import { slideRightToLeftAnimation } from '../../Animations/animations';
 import { userdet } from 'src/app/classes/userdet';
 
@@ -42,7 +43,9 @@ export class SigninComponent {
   ) {}
   signin()
   {
-    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/userlogin';
+
+    // let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/userlogin';
+    let url = environment.api + '/userlogin';
     let params = new URLSearchParams();
     let name = (document.getElementById('user') as HTMLInputElement).value;
     let pass = (document.getElementById('pass') as HTMLInputElement).value;

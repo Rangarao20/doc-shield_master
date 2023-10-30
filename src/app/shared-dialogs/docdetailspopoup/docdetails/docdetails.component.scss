@@ -1,3 +1,8 @@
+@font-face {
+  font-family: manifapro;
+  src: url(../../../../assets/Fonts/ManifaPro2_2.224-Regular.otf) format('opentype');
+}
+
 .mffw {
   width: auto;
   height: 2vh;
@@ -17,6 +22,11 @@
 
 body {
   font-family: manifapro;
+}
+.text
+{
+  font-family: manifapro;
+  font-size: medium;
 }
 
 ::ng-deep .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {

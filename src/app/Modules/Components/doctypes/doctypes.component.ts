@@ -18,6 +18,7 @@ import {
 
 import { BackendService } from 'src/app/Services/backend.service';
 import { DataService } from 'src/app/data.service';
+import { environment } from 'src/environment';
 
 @Component({
   selector: 'app-doctypes',
@@ -38,8 +39,9 @@ export class DoctypesComponent {
       items: this.fb.array([]), // Initialize an empty FormArray
     });
     console.log(this.service.certificates);
+    let url = environment.api + '/doctype';
 
-    let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/doctype';
+    // let url = 'https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/doctype';
 
     this.data.certificate(url).subscribe((data) => {
       if (data.length === 0)

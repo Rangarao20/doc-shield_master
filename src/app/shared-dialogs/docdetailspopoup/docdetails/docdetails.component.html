@@ -65,7 +65,7 @@
             width: 90%;
           " *ngFor="let item of itemsFormArray.controls; let i = index" [formGroupName]="i">
           <div style="width: 130px; height: auto; text-align: left">
-            <mat-label>{{ item.value.Label }}</mat-label>
+            <mat-label class = "text">{{ item.value.Label }}</mat-label>
           </div>
 
           <mat-form-field appearance="outline" id="searchbar">
@@ -75,7 +75,7 @@
                 align-items: center;
                 flex-direction: row;
               ">
-              <input matInput placeholder="" id="name" formControlName="name"  value={{item.value.name}}/>
+              <input matInput placeholder="" id="name" formControlName="name"  value={{item.value.name}} class = "text"/>
             </div>
           </mat-form-field>
         </div>
@@ -118,7 +118,7 @@
           column-gap: 2vw;
           width: 100%;
         ">
-        <button mat-button (click)="ok()">Close</button>
+        <button mat-button (click)="ok()" class = "text">Close</button>
         <!-- <button mat-button (click)="onSubmit()">Submit</button> -->
       </div>
     </form>

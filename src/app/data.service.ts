@@ -21,9 +21,11 @@ export class DataService {
   {
     return this.httpclient.get(url);
   }
-  app(id:Number, value:any): Observable<any>
+  app(body:any, value:any): Observable<any>
   {
-    return this.httpclient.put('https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/docdet/statapp/'+id+'', value);
+    
+    // return this.httpclient.put('http://localhost:3000/docdet/statapp/'+id+'', value);
+       return this.httpclient.put('https://docshield-docshield-offchain.apps.ocpdev.aramco.com.sa/docdet/statapp',body,value);
   }
   signed()
   {
